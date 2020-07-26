@@ -4,6 +4,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <!-- <item name="android:windowBackground">@drawable/launch_screen</item> -->
+        <item name="android:windowBackground">@color/primary_dark</item>
     </style>
 
     <style name="SplashScreenTheme" parent="SplashScreen_SplashTheme">

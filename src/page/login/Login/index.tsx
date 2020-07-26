@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 
 import { px2dp } from '../../../utils/utils';
@@ -101,6 +101,11 @@ const Login = ({ dispatch }: any) => {
 
 	return (
 		<View style={layout.page}>
+			<StatusBar
+				translucent={true}
+				backgroundColor={'rgba(255,255,255,0)'}
+				barStyle="dark-content"
+			/>
 			<View style={styles.page}>
 				<View
 					style={{
