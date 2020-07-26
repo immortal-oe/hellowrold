@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">youhelloddd</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey"></string>
+    <string moduleConfig="true" name="CodePushServerUrl">http://saoyears.top:3000</string>
+     <!-- TODO 热更新 -->
+</resources>
