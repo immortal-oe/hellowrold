@@ -51,7 +51,7 @@ class AppCodePush extends Component {
 	}
 
 	componentDidMount() {
-		this.updata();
+		// this.updata();
 		codePush.allowRestart(); //在加载完了，允许重启
 	}
 
@@ -129,9 +129,6 @@ class AppCodePush extends Component {
 					}}
 					ref={(e) => (this.pross = e)}
 				/>
-				<Text style={{}}>codepush 7777</Text>
-				<Text style={{}}>{this.state.contont}</Text>
-				<Text style={{}}>第7777个版本</Text>
 			</TouchableOpacity>
 		);
 	}

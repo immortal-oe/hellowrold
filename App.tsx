@@ -15,7 +15,7 @@ import { Provider } from 'react-redux';
 import store from './src/redux';
 
 import Router from './src/Router';
-import AppCodePush from './src/codepush/AppCodePush';
+// import AppCodePush from './src/codepush/AppCodePush';
 
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
 			<Provider store={store}>
 				<Router />
 			</Provider>
-			<AppCodePush />
+			{/* <AppCodePush /> */}
 		</View>
 	);
 };

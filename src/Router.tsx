@@ -24,6 +24,8 @@ import FriendApplication from './page/mail/FriendApplication';
 import Setting from './page/personal/setting';
 import Setinfo from './page/personal/setinfo';
 import Demo from './page/demo';
+import Firing from './page/firing';
+import { uniqueId } from 'lodash';
 
 // dark: true,
 // colors: {
@@ -101,6 +103,13 @@ export default function Router() {
 					}
 				}}
 			>
+				<Stack.Screen
+					name={'Firing'}
+					options={{
+						header: undefined
+					}}
+					component={Firing}
+				/>
 				<Stack.Screen
 					name={'Login'}
 					options={{

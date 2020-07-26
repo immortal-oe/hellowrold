@@ -13,7 +13,6 @@ import { px2dp, statusBarHeight, onePx } from '../../../utils/utils';
 import { ItemConversationList } from '../../../utils/timType';
 import { storeData, getData } from '../../../utils/Store';
 import { debounce, conversion } from '../../../utils/comfuc';
-import { array, any } from 'prop-types';
 import { fromtots } from '../../../utils/fromtots';
 
 const Msg = ({ dispatch, userInfo }: any) => {

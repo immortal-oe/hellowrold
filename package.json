@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res ",
-    "and":"cd android && ./gradlew assembleRelease"
+    "and": "cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",
@@ -22,8 +22,8 @@
     "@types/react-redux": "^7.1.9",
     "axios": "^0.19.2",
     "cos-js-sdk-v5": "^0.5.27",
-    "global": "^4.4.0",
-    "prop-types": "^15.7.2",
+    "lottie-ios": "3.1.8",
+    "lottie-react-native": "^3.5.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-code-push": "^6.3.0",
