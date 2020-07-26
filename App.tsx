@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, Text, StatusBar } from 'react-native';
 
 import './src/utils/global';
@@ -19,13 +19,15 @@ import Router from './src/Router';
 
 
 const App = () => {
+	useEffect(()=>{
+	},[])
 	// console.log(StatusBar.currentHeight);
 	return (
 		<View style={styles.page}>
 			<StatusBar
 				//
 				translucent={true}
-				backgroundColor={'rgba(255,255,255,0)'}
+				backgroundColor={'rgba(0,0,0,1)'}
 				barStyle="light-content"
 			/>
 			<Provider store={store}>

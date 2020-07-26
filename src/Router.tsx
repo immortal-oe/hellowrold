@@ -106,7 +106,7 @@ export default function Router() {
 				<Stack.Screen
 					name={'Firing'}
 					options={{
-						header: undefined
+						header: () => null
 					}}
 					component={Firing}
 				/>

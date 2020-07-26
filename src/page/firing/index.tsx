@@ -1,26 +1,30 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import LottieView from 'lottie-react-native';
 import { replace } from '../../RootNavigation';
+import SplashScreen from 'react-native-splash-screen';
 
 interface componentNameProps {}
 
 const Firing = (props: componentNameProps) => {
+	useEffect(() => {
+		SplashScreen.hide();
+	});
+
 	const onAnimationFinish = () => {
-    replace("")
-  };
+		replace('Login');
+	};
 
 	return (
 		<View style={styles.container}>
 			<LottieView
 				style={{
-					width: 300,
-					height: 300,
+					flex: 1,
 					backgroundColor: '#000'
 				}}
 				source={require('./../../dataLottie/heiyanjing')}
 				autoPlay
-				loop={true}
+				loop={false}
 				onAnimationFinish={onAnimationFinish}
 			/>
 		</View>
@@ -30,5 +34,7 @@ const Firing = (props: componentNameProps) => {
 export default Firing;
 
 const styles = StyleSheet.create({
-	container: {}
+	container: {
+		flex: 1
+	}
 });
