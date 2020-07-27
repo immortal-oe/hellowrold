@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
 	name: {
 		flex: 1,
 		textAlign: 'center',
-		fontSize: 16
+		fontSize: 16,
+		color: '#000'
 	},
 	content: {
 		height: heade,

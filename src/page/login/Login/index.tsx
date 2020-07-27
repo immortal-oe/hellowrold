@@ -16,8 +16,7 @@ const Login = ({ dispatch }: any) => {
 	const [ password, setpassword ] = useState('');
 
 	useEffect(() => {
-		console.log('1');
-		getData('loginmsg')
+		getData('loginmsg', true)
 			.then((res) => {
 				console.log(res);
 				res && setvalue(res.value);
@@ -67,11 +66,6 @@ const Login = ({ dispatch }: any) => {
 					console.log('账号已登录', imResponse.data.errorInfo);
 					replace('MyTab');
 				} else {
-					storekey.setkey(value);
-
-					storeData('loginmsg', { value, password }).then((res: any) => {
-						// console.log(res);
-					});
 					let onSdkReady = function(event: any) {
 						let getmy = tim.getMyProfile();
 						getmy
@@ -93,6 +87,10 @@ const Login = ({ dispatch }: any) => {
 							});
 					};
 					tim.on(TIM.EVENT.SDK_READY, onSdkReady);
+					storekey.setkey(value);
+					storeData('loginmsg', { value, password }, true).then((res: any) => {
+						// console.log(res);
+					});
 				}
 			})
 			.catch(function(imError: any) {
@@ -102,7 +100,12 @@ const Login = ({ dispatch }: any) => {
 
 	return (
 		<View style={layout.page}>
-			<StatusBar hidden={false} translucent={true} backgroundColor={'rgba(255,255,255,0)'} barStyle="dark-content" />
+			<StatusBar
+				hidden={false}
+				translucent={true}
+				backgroundColor={'rgba(255,255,255,0)'}
+				barStyle="dark-content"
+			/>
 			<View style={styles.page}>
 				<View
 					style={{
