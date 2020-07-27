@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import LottieView from 'lottie-react-native';
 import { replace } from '../../RootNavigation';
 import SplashScreen from 'react-native-splash-screen';
@@ -9,7 +9,11 @@ interface componentNameProps {}
 const Firing = (props: componentNameProps) => {
 	useEffect(() => {
 		SplashScreen.hide();
-	});
+		StatusBar.setHidden(false);
+		StatusBar.setBackgroundColor('rgba(0,0,0,0)');
+		StatusBar.setBarStyle('light-content');
+		StatusBar.setTranslucent(true);
+	}, []);
 
 	const onAnimationFinish = () => {
 		replace('Login');

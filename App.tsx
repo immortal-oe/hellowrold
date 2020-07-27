@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text, StatusBar } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import './src/utils/global';
 
@@ -17,19 +17,25 @@ import store from './src/redux';
 import Router from './src/Router';
 // import AppCodePush from './src/codepush/AppCodePush';
 
-
 const App = () => {
-	useEffect(()=>{
-	},[])
+	useEffect(() => {
+		// @ts-ignore
+		TextInput.defaultProps = Object.assign({}, TextInput.defaultProps, {
+			defaultProps: false,
+			placeholderTextColor: '#ccc',
+			style: { color: '#333333', paddingVertical: 0 }
+		});
+		// @ts-ignore
+		Text.defaultProps = Object.assign({}, Text.defaultProps, {
+			allowFontScaling: false,
+			style: { color: '#333', fontSize: 14, fontWeight: '400' }
+		});
+		// @ts-ignore
+		TouchableOpacity.defaultProps = Object.assign({}, TouchableOpacity.defaultProps, { activeOpacity: 0.72 });
+	}, []);
 	// console.log(StatusBar.currentHeight);
 	return (
 		<View style={styles.page}>
-			<StatusBar
-				//
-				translucent={true}
-				backgroundColor={'rgba(0,0,0,1)'}
-				barStyle="light-content"
-			/>
 			<Provider store={store}>
 				<Router />
 			</Provider>
@@ -40,7 +46,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
 	page: {
-		flex: 1
+		flex: 1,
+		backgroundColor: '#ffffff'
 	}
 });
 

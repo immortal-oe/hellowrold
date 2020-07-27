@@ -10,6 +10,8 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 import ScreenHeader from './components/ScreenHeader';
+import NoBack from './components/ScreenHeader/NoBack';
+
 
 import Login from './page/login/Login';
 
@@ -113,8 +115,10 @@ export default function Router() {
 				<Stack.Screen
 					name={'Login'}
 					options={{
-						title: '登陆',
-						header: undefined
+						title: '登录',
+						header: (props) => {
+							return <NoBack props={props} />;
+						}
 					}}
 					component={Login}
 				/>

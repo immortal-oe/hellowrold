@@ -16,6 +16,7 @@ const Login = ({ dispatch }: any) => {
 	const [ password, setpassword ] = useState('');
 
 	useEffect(() => {
+		console.log('1');
 		getData('loginmsg')
 			.then((res) => {
 				console.log(res);
@@ -101,11 +102,7 @@ const Login = ({ dispatch }: any) => {
 
 	return (
 		<View style={layout.page}>
-			<StatusBar
-				translucent={true}
-				backgroundColor={'rgba(255,255,255,0)'}
-				barStyle="dark-content"
-			/>
+			<StatusBar hidden={false} translucent={true} backgroundColor={'rgba(255,255,255,0)'} barStyle="dark-content" />
 			<View style={styles.page}>
 				<View
 					style={{
