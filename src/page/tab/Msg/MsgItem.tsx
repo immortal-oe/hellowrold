@@ -6,15 +6,20 @@ import { navigate } from '../../../RootNavigation';
 import { TIM } from '../../../utils/tim';
 import { ItemConversationList } from '../../../utils/timType';
 import { conversion } from '../../../utils/comfuc';
+import { ConversationListType } from './type';
 
-const MsgItem = ({ item }: { item: ItemConversationList }) => {
-	const { type, conversationType,time, payload: { text = '' }, isPlaceMessage } = item;
+interface Props {
+	item: ConversationListType;
+}
+
+const MsgItem = ({ item }: Props) => {
+	const { type, unreadCount, groupProfile, lastMessage: { payload: { text = '' }, lastTime = 0 } } = item;
 
 	const typename = () => {
 		if (type == TIM.TYPES.CONV_SYSTEM) {
 			return '系统通知';
 		} else if (type == TIM.TYPES.CONV_GROUP) {
-			return ''; // （群组）会话
+			return groupProfile.name; // （群组）会话
 		} else if (type == TIM.TYPES.CONV_C2C) {
 			return '对方'; // （端到端）会话
 		}
@@ -32,7 +37,7 @@ const MsgItem = ({ item }: { item: ItemConversationList }) => {
 				}
 				navigate('ChatRoom', {
 					conversationID: item.conversationID,
-					groupID: item.to
+					groupID: item.groupProfile.groupID
 				});
 			}}
 			style={styles.msgbox}
@@ -49,15 +54,15 @@ const MsgItem = ({ item }: { item: ItemConversationList }) => {
 					<Text style={styles.mtitle} numberOfLines={1}>
 						{title}
 					</Text>
-					<Text style={styles.time}>{conversion(time, 'HMS')}</Text>
+					<Text style={styles.time}>{conversion(lastTime, 'HMS')}</Text>
 				</View>
 				<View style={styles.mbottom}>
 					<Text numberOfLines={1} style={styles.mdesc}>
 						{text}
 					</Text>
-					{isPlaceMessage > 0 ? (
+					{unreadCount > 0 ? (
 						<View style={styles.uncont}>
-							<Text style={styles.num}>{isPlaceMessage}</Text>
+							<Text style={styles.num}>{unreadCount}</Text>
 						</View>
 					) : null}
 				</View>

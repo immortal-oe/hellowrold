@@ -1,7 +1,19 @@
 import React, { useEffect, useCallback, useRef } from 'react';
 
+export const filterData = (arr, key = 'id') => {
+	const result = [];
+	const obj = {};
+	for (let i = 0; i < arr.length; i++) {
+		if (!obj[arr[i][key]]) {
+			result.push(arr[i]);
+			obj[arr[i][key]] = true;
+		}
+	}
+	return result;
+};
+
 // 时间转换
-const conversion = (time: any = 0, type: 'HMS' | 'YMD') => {
+export const conversion = (time: any = 0, type: 'HMS' | 'YMD') => {
 	if (time == 0) {
 		return '';
 	}
@@ -14,7 +26,7 @@ const conversion = (time: any = 0, type: 'HMS' | 'YMD') => {
 };
 
 // 同一时间内 执行最后一次 防抖 执行最后一次：
-const debounce = function(func: Function, time: number) {
+export const debounce = function(func: Function, time: number) {
 	let timer: any = null;
 	return (...args: any) => {
 		clearTimeout(timer);
@@ -25,5 +37,3 @@ const debounce = function(func: Function, time: number) {
 		}, time);
 	};
 };
-
-export { conversion, debounce };

@@ -28,7 +28,7 @@ let fucobj = (oj: any) => {
 				oj[key] = fucobj(oj[key]);
 			} else if (isArray(oj[key])) {
 				if (oj[key].length == 0) {
-					oj[key] = 'Array';
+					oj[key] = 'Array<any>';
 				} else {
 					if (isObject(oj[key][0])) {
 						let mi = { ...oj[key][0] };
@@ -37,7 +37,7 @@ let fucobj = (oj: any) => {
 					} else if (isString(oj[key][0])) {
 						oj[key] = 'Array<String>';
 					} else if (isNumber(oj[key][0])) {
-						oj[key] = 'Array<Number>';
+						oj[key] = 'Array<number>';
 					} else if (isBoolean(oj[key][0])) {
 						oj[key] = 'Array<Boolean>';
 					}
@@ -45,7 +45,7 @@ let fucobj = (oj: any) => {
 			} else if (isString(oj[key])) {
 				oj[key] = 'String';
 			} else if (isNumber(oj[key])) {
-				oj[key] = 'Number';
+				oj[key] = 'number';
 			} else if (isBoolean(oj[key])) {
 				oj[key] = 'Boolean';
 			}
