@@ -16,6 +16,9 @@ import com.microsoft.codepush.react.CodePush; // TODO 热更新
 import com.facebook.react.bridge.JSIModulePackage; // <- add
 import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
 
+import cn.jiguang.plugins.push.JPushModule; // // TODO 推送
+
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -33,11 +36,13 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
           return packages;
         }
+        
+        // TODO 热更新
         @Override
         protected String getJSBundleFile() {
           return CodePush.getJSBundleFile();
         }
-        // TODO 热更新
+
         @Override
         protected JSIModulePackage getJSIModulePackage() {
           return new ReanimatedJSIModulePackage(); // <- add
@@ -58,6 +63,7 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+    JPushModule.registerActivityLifecycle(this); // TODO 推送
   }
 
   /**

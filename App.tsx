@@ -15,7 +15,9 @@ import { Provider } from 'react-redux';
 import store from './src/redux';
 
 import Router from './src/Router';
-// import AppCodePush from './src/codepush/AppCodePush';
+
+// import AppCodePush from './src/NativeComponents/AppCodePush';
+import PushCotification from './src/NativeComponents/PushCotification';
 
 const App = () => {
 	useEffect(() => {
@@ -32,14 +34,15 @@ const App = () => {
 		});
 		// @ts-ignore
 		TouchableOpacity.defaultProps = Object.assign({}, TouchableOpacity.defaultProps, { activeOpacity: 0.72 });
+
 	}, []);
-	// console.log(StatusBar.currentHeight);
 	return (
 		<View style={styles.page}>
 			<Provider store={store}>
 				<Router />
 			</Provider>
 			{/* <AppCodePush /> */}
+			<PushCotification />
 		</View>
 	);
 };

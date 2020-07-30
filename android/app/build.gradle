@@ -135,6 +135,10 @@ android {
         versionCode 1
         versionName "1.5.0"
         multiDexEnabled true     //解决DEX单行溢出
+         manifestPlaceholders = [
+            JPUSH_APPKEY: "f9f17897d6ef6d6b019db9c2",         //在此替换你的APPKey
+            JPUSH_CHANNEL: "test"        //在此替换你的channel
+        ]
     }
     splits {
         abi {
@@ -186,6 +190,11 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
+    // TODO 推送
+    implementation project(':jpush-react-native')  // 添加 jpush 依赖
+    implementation project(':jcore-react-native')  // 添加 jcore 依赖
+    //
+    
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
