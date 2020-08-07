@@ -23,7 +23,7 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-      <!-- add -->
+      <!-- // TOOD http请求 -->
       <uses-library android:name="org.apache.http.legacy" android:required="false"/>
       <!-- // TODO 推送 -->
       <meta-data
