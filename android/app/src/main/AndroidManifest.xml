@@ -2,7 +2,7 @@
   package="com.youhello">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- add  android:usesCleartextTraffic="true" -->
+    <!-- // TOOD http请求  在下面 android:usesCleartextTraffic="true" -->
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
