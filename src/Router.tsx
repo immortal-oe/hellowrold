@@ -156,7 +156,6 @@ const IconWithBadge = ({ name = '', color = '', size = 0 }) => {
 			{badgeCount > 0 && (
 				<View
 					style={{
-						// On React Native < 0.57 overflow outside of parent will not work on Android, see https://git.io/fhLJ8
 						position: 'absolute',
 						right: -6,
 						top: -3,
