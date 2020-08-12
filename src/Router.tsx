@@ -99,9 +99,7 @@ export default function Router() {
 				headerMode={'screen'}
 				screenOptions={{
 					...TransitionPresets.SlideFromRightIOS,
-					header: (props) => {
-						return <ScreenHeader props={props} />;
-					}
+					header: (props) => <ScreenHeader props={props} />
 				}}
 			>
 				<Stack.Screen
