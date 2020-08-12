@@ -97,12 +97,10 @@ export default function Router() {
 		<NavigationContainer theme={DefaultTheme} ref={navigationRef}>
 			<Stack.Navigator
 				headerMode={'screen'}
-				screenOptions={{
-					...TransitionPresets.SlideFromRightIOS,
-					header: (props) => {
-						return <ScreenHeader props={props} />;
-					}
-				}}
+				// screenOptions={{
+				// 	// ...TransitionPresets.SlideFromRightIOS,
+				// 	header: (props) => <ScreenHeader props={props} />
+				// }}
 			>
 				<Stack.Screen
 					name={'Firing'}
