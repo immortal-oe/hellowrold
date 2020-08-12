@@ -156,6 +156,8 @@ const IconWithBadge = ({ name = '', color = '', size = 0 }) => {
 			{badgeCount > 0 && (
 				<View
 					style={{
+
+						
 						position: 'absolute',
 						right: -6,
 						top: -3,
