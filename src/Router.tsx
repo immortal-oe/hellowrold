@@ -12,7 +12,6 @@ const Tab = createBottomTabNavigator();
 import ScreenHeader from './components/ScreenHeader';
 import NoBack from './components/ScreenHeader/NoBack';
 
-
 import Login from './page/login/Login';
 
 import Msg from './page/tab/Msg';
@@ -156,8 +155,6 @@ const IconWithBadge = ({ name = '', color = '', size = 0 }) => {
 			{badgeCount > 0 && (
 				<View
 					style={{
-
-						
 						position: 'absolute',
 						right: -6,
 						top: -3,
