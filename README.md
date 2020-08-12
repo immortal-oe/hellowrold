@@ -33,8 +33,6 @@ adb uninstall com.com.hell
 
 3、重新安装watchman：brew install watchman
 
-
-
 # react-native启动时红屏报错：Unable to load script.Make sure you're either running a metro server or that ....
 
 # 如果  android/app/src/ 下debug目录没有 
