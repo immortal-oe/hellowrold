@@ -26,7 +26,9 @@ import Setting from './page/personal/setting';
 import Setinfo from './page/personal/setinfo';
 import Demo from './page/demo';
 import Firing from './page/firing';
-import { uniqueId } from 'lodash';
+
+
+// lazyRequire
 
 // dark: true,
 // colors: {
