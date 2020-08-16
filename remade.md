@@ -48,15 +48,25 @@ adb uninstall com.com.hell
 
  2、项目中执行命令
 
-react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res 
-　*注意：查看自己项目是否有 index.android.js这个文件，如果有回车执行命令即可，否则会会报错，找不到这个index.android.js文件；把index.android.js改为index.js
+> react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res 
+
+*注意：查看自己项目是否有 index.android.js这个文件，如果有回车执行命令即可，否则会会报错，找不到这个index.android.js文件；把index.android.js改为index.js
 
 　执行这句命令后会在新建的assets文件夹下生成一个index.android.bundle文件
 
 
-npm run android
+> npm run android
 
 
 #  [CodePush] Error in getting binary resources modified time
 
 apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+
+
+# [!] CocoaPods could not find compatible versions for pod "Sentry":
+
+> pod repo update
+
+# fatal error: module map file '/Users/gang/Library/Developer/Xcode/DerivedData/youhello-gcdcvnrdtridsvbnydvcpdxtbjhy/Build/Products/Debug-iphonesimulator/YogaKit/YogaKit.modulemap' not found
+
+把ios文件重新拖入xcode

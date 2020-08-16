@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { px2dp } from '../../../utils/utils';
 import { layout } from '../../../utils/layout';
-import { BaseButton } from 'react-native-gesture-handler';
+import { BaseButton, RectButton } from 'react-native-gesture-handler';
 import { tim, TIM } from '../../../utils/tim';
 import { getsign } from '../../../api/config';
 import { saveUserInfo } from '../../../redux/actions/saveUserInfo';
@@ -16,6 +16,7 @@ const Login = ({ dispatch }: any) => {
 	const [ password, setpassword ] = useState('');
 
 	useEffect(() => {
+		StatusBar.setBarStyle('dark-content');
 		getData('loginmsg', true)
 			.then((res) => {
 				console.log(res);
@@ -100,12 +101,6 @@ const Login = ({ dispatch }: any) => {
 
 	return (
 		<View style={layout.page}>
-			<StatusBar
-				hidden={false}
-				translucent={true}
-				backgroundColor={'rgba(255,255,255,0)'}
-				barStyle="dark-content"
-			/>
 			<View style={styles.page}>
 				<View
 					style={{
@@ -136,7 +131,7 @@ const Login = ({ dispatch }: any) => {
 						style={styles.input}
 					/>
 				</View>
-				<BaseButton
+				<RectButton
 					onPress={() => {
 						getlogin();
 					}}
@@ -150,7 +145,7 @@ const Login = ({ dispatch }: any) => {
 					}}
 				>
 					<Text>登陆</Text>
-				</BaseButton>
+				</RectButton>
 			</View>
 		</View>
 	);

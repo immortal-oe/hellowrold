@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { tim, TIM } from '../../../utils/tim';
 
-import CoustmHeader, { CoustmWidth } from '../../../components/CoustmHeader';
+import CoustmHeader from '../../../components/CoustmHeader';
 import { RectButton } from 'react-native-gesture-handler';
-
 import { navigate, back } from '../../../RootNavigation';
-import { px2dp } from '../../../utils/utils';
+import { px2dp, HeaderHeight } from '../../../utils/utils';
 import { saveUserInfo } from '../../../redux/actions/saveUserInfo';
 
 const Setinfo = ({ dispatch, navigation }: any) => {
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
 	},
 	rightbox: {
 		flex: 1,
-		width: CoustmWidth,
+		width: HeaderHeight,
 		alignItems: 'center',
 		justifyContent: 'center'
 	},

@@ -11,7 +11,6 @@ import { layout } from '../../../utils/layout';
 import { px2dp, statusBarHeight, onePx } from '../../../utils/utils';
 import { ItemConversationList } from '../../../utils/timType';
 import { storeData, getData } from '../../../utils/Store';
-import { fromtots } from '../../../utils/fromtots';
 import { ConversationListType, RECEIVED_Type } from './type';
 import { filterData } from '../../../utils/comfuc';
 
@@ -28,8 +27,7 @@ const Msg = ({ dispatch, userInfo }: any) => {
 			.then((res: Array<ConversationListType>) => {
 				// console.log('Save_conversation_List', res[0].groupProfile);
 				// fromtots(res[0])
-				console.log(res[0].groupProfile.name);
-				
+				console.log(res);
 				if (res) {
 					let data = filterData([ ...res, ...listData ], 'conversationID');
 					setlistData(data);

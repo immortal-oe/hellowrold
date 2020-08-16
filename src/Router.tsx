@@ -49,11 +49,11 @@ import Firing from './page/firing';
 // }
 
 // @ts-ignore
-// global.ErrorUtils.setGlobalHandler((error) => {
-// 	//console.log('ErrorUtils发现了语法错误，避免了崩溃，具体报错信息：');
-// 	//console.log(error.name, error.message);
-// 	// alert('啊哦～，js线程报错' + error.message);
-// }, true);
+global.ErrorUtils.setGlobalHandler((error) => {
+	//console.log('ErrorUtils发现了语法错误，避免了崩溃，具体报错信息：');
+	console.log("'啊哦～，js线程报错'",error.name, error.message);
+	// alert('啊哦～，js线程报错' + error.message);
+}, true);
 
 function MyTab() {
 	return (

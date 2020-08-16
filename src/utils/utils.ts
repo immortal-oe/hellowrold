@@ -39,4 +39,10 @@ const statusBarHeight: number = Platform.OS === 'ios' ? iosHeight : andHeight;
 
 const onePx = 1 / PixelRatio.get();
 
-export { statusBarHeight, onePx, height, width, px2dp };
+function isios() {
+	return Platform.OS === 'ios';
+}
+
+const HeaderHeight = px2dp(96);
+
+export { statusBarHeight, HeaderHeight, onePx, height, width, px2dp, isios };

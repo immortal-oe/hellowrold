@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TextInput } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
-import { px2dp, statusBarHeight } from '../../utils/utils';
+import { px2dp, statusBarHeight, HeaderHeight } from '../../utils/utils';
 import { back } from '../../RootNavigation';
-
-const CoustmWidth = px2dp(160) - statusBarHeight;
-
-export { CoustmWidth };
 
 interface CoustmHeader {
 	titleName: string;
@@ -15,21 +11,17 @@ interface CoustmHeader {
 }
 
 const CoustmHeader = ({ titleName, Left, Right }: CoustmHeader) => {
-	const LeftBox = Left
-		? Left
-		: () => {
-				return (
-					<RectButton onPress={back} style={styles.content}>
-						<Image style={styles.back} source={require('./../../assets/imgs/back.png')} />
-					</RectButton>
-				);
-			};
+	const LeftBox = Left || (
+		<RectButton onPress={back} style={styles.content}>
+			<Image style={styles.back} source={require('./../../assets/imgs/back.png')} />
+		</RectButton>
+	);
 
-	const RightBox = Right ? Right : () => null;
+	const RightBox = Right || null;
 
 	return (
 		<View style={styles.page}>
-			{LeftBox()}
+			{LeftBox}
 			<Text style={styles.name}>{titleName}</Text>
 			<View style={styles.content}>{RightBox()}</View>
 		</View>
@@ -39,7 +31,7 @@ const CoustmHeader = ({ titleName, Left, Right }: CoustmHeader) => {
 const styles = StyleSheet.create({
 	page: {
 		width: '100%',
-		height: px2dp(160),
+		height: HeaderHeight + statusBarHeight,
 		paddingTop: statusBarHeight,
 		backgroundColor: '#fff',
 		flexDirection: 'row',
@@ -54,8 +46,8 @@ const styles = StyleSheet.create({
 		textAlign: 'center'
 	},
 	content: {
-		width: CoustmWidth,
-		height: CoustmWidth,
+		width: HeaderHeight,
+		height: HeaderHeight,
 		alignItems: 'center',
 		justifyContent: 'center'
 	}
