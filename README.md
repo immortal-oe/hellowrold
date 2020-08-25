@@ -58,3 +58,6 @@ npm run android
 #  [CodePush] Error in getting binary resources modified time
 
 apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+
+
+# error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' o

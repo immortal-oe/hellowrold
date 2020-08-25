@@ -20,7 +20,7 @@ const Firing = (props: componentNameProps) => {
   }, []);
 
   const onAnimationFinish = () => {
-    replace('Login');
+    replace('Square');
   };
 
   return (
