@@ -101,6 +101,12 @@ const Login = ({ dispatch }: any) => {
 
 	return (
 		<View style={layout.page}>
+			<StatusBar
+				hidden={false}
+				translucent={true}
+				backgroundColor={'rgba(255,255,255,0)'}
+				barStyle="dark-content"
+			/>
 			<View style={styles.page}>
 				<View
 					style={{
