@@ -32,10 +32,8 @@ function px2dp(px: Number) {
 // }
 
 // const iosHeight: number = isIphoneX() || isIphoneXR() ? 44 : 20;
-const iosHeight: number = NativeModules.StatusBarManager.HEIGHT;
 
-const andHeight: any = StatusBar.currentHeight;
-const statusBarHeight: number = Platform.OS === 'ios' ? iosHeight : andHeight;
+const statusBarHeight: number = NativeModules.StatusBarManager.HEIGHT;
 
 const onePx = 1 / PixelRatio.get();
 
