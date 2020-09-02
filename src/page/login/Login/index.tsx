@@ -9,7 +9,7 @@ import { tim, TIM } from '../../../utils/tim';
 import { getsign } from '../../../api/config';
 import { saveUserInfo } from '../../../redux/actions/saveUserInfo';
 import { replace } from '../../../RootNavigation';
-import { storeData, getData, storekey } from '../../../utils/Store';
+import { setData, getData, storekey } from '../../../utils/Store';
 
 const Login = ({ dispatch }: any) => {
 	const [ value, setvalue ] = useState('');
@@ -89,7 +89,7 @@ const Login = ({ dispatch }: any) => {
 					};
 					tim.on(TIM.EVENT.SDK_READY, onSdkReady);
 					storekey.setkey(value);
-					storeData('loginmsg', { value, password }, true).then((res: any) => {
+					setData('loginmsg', { value, password }, true).then((res: any) => {
 						// console.log(res);
 					});
 				}

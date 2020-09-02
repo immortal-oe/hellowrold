@@ -1,4 +1,4 @@
-import { storeData } from '../../utils/Store';
+import { setData } from '../../utils/Store';
 
 export default function userInfo(
 	state: State = {
@@ -10,7 +10,7 @@ export default function userInfo(
 	switch (action.type) {
 		case 'USERINFO':
 			const data = { ...state, ...action.userInfo };
-			storeData('USERINFO', data);
+			setData('USERINFO', data);
 			return data;
 		case 'cleanUserInfo':
 			return { repeatLogin: false };

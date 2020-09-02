@@ -33,7 +33,7 @@ adb uninstall com.com.hell
 
 3、重新安装watchman：brew install watchman
 
-# react-native启动时红屏报错：Unable to load script.Make sure you're either running a metro server or that ....
+# 5 react-native启动时红屏报错：Unable to load script.Make sure you're either running a metro server or that ....
 
 # 如果  android/app/src/ 下debug目录没有 
 
@@ -55,9 +55,12 @@ react-native bundle --platform android --dev false --entry-file index.android.js
 npm run android
 
 
-#  [CodePush] Error in getting binary resources modified time
+#  6 [CodePush] Error in getting binary resources modified time
 
 apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 
-# error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' o
+# 7 error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+
+关闭当前的工作空间，删除掉文件夹中的workspace，然后重新pod install，install完成之后，
+拖ios去xcode重新run

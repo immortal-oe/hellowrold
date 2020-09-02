@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-const storeData = async (key: string, value: any, nokey?: boolean) => {
+const setData = async (key: string, value: any, nokey?: boolean) => {
 	try {
 		key = nokey ? key : storekey.getkey() + '-' + key;
 		AsyncStorage.setItem(key, JSON.stringify({ v: value }));
@@ -37,4 +37,4 @@ const createKey = function() {
 
 const storekey = createKey();
 
-export { storeData, getData, storekey };
+export { setData, getData, storekey };

@@ -10,7 +10,7 @@ import { tim, TIM } from '../../../utils/tim';
 import { layout } from '../../../utils/layout';
 import { px2dp, statusBarHeight, onePx } from '../../../utils/utils';
 import { ItemConversationList } from '../../../utils/timType';
-import { storeData, getData } from '../../../utils/Store';
+import { setData, getData } from '../../../utils/Store';
 import { ConversationListType, RECEIVED_Type } from './type';
 import { filterData } from '../../../utils/comfuc';
 
@@ -82,7 +82,7 @@ const Msg = ({ dispatch, userInfo }: any) => {
 					// 本地存储
 					let data = filterData([ ...listData, ...conList ], 'conversationID');
 					setlistData(data);
-					storeData('Save_conversation_List', conList);
+					setData('Save_conversation_List', conList);
 				}
 			})
 			.catch(function(imError: any) {

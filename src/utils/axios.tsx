@@ -9,7 +9,8 @@ interface Data {
 }
 
 const instance = maxios.create({
-//   baseURL: 'http://localhost:3000/',
+  //   baseURL: 'http://localhost:3000/',
+  
   baseURL: 'http://saoyears.top:9001/',
   timeout: 5000,
   headers: {
@@ -29,29 +30,23 @@ const axios = {
   request: function ({url = '', params = {}, method}: Data) {
     return new Promise((resolve, reject) => {
       instance({
-        method: method,
-        url: url,
+        method,
+        url,
         params: {
           timestamp: new Date().getTime(),
           ...params,
         },
       })
         .then((res) => {
-          console.log(res);
-          resolve("res");
-          const {code = 0, data, msg = ''} = res.data;
-          // if (code == 1000) {
-          // 	resolve(res.data.data);
-          // } else {
-          // 	console.log(res);
-          // 	alert(msg);
-          // }
+          const {data, status} = res;
+          if (status === 200) {
+            resolve(data);
+          } else {
+            console.log(res);
+          }
         })
         .catch((err) => {
           console.log(err);
-          console.log(params);
-
-          // reject(err);
         });
     });
   },
