@@ -1,134 +1,118 @@
 // @ts-nocheck
-import React, {useState, useEffect, Suspense, lazy} from 'react';
+import React, {useRef, Component} from 'react';
 import {
-  View,
-  Text,
   StyleSheet,
-  TextInput,
-  StatusBar,
-  FlatList,
-  ScrollView,
+  Text,
+  View,
+  Pressable,
+  Easing,
+  Button,
+  Dimensions,
 } from 'react-native';
-import {connect} from 'react-redux';
-
-import {px2dp} from '../../../utils/utils';
-import {layout} from '../../../utils/layout';
-import {navigate} from '../../../RootNavigation';
-import {video_timeline_all, m_login} from '../../../api/music';
-
-import ItemSquare from './ItemSquare';
-import Waterfall from './waterfall';
-import {setData, getData} from './../../../utils/Store';
-
-// function slowImport(value: any, ms = 1000) {
-//   return new Promise((resolve) => {
-//     setTimeout(() => resolve(value), ms);
-//   });
-// }
-
-// const ScreenS = lazy(() => slowImport(import('./Screen'), 1000));
-
-const Square = ({dispatch}: any) => {
-  const [List, setList] = useState([]);
-  useEffect(() => {
-    // let ary = [];
-    // for (let index = 0; index < 23; index++) {
-    //   console.log((Math.random() * 10) % 2);
-
-    //   ary.push({
-    //     width: 200,
-    //     height: 50 + Math.random() * 300,
-    //     title:
-    //       Math.random() > 0.5
-    //         ? '世界你好'
-    //         : '世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好世界你好',
-    //   });
-    // }
-
-    // console.log(ary);
-    // setData('ary', ary);
-    getData('ary').then((res) => {
-      console.log(res);
-      res[0].height = 500;
-      res.push({
-        width: 200,
-        height: 50,
-        title: '世界你好',
-      });
-      res.push({
-        width: 200,
-        height: 50,
-        title: '世界你好',
-      });
-      res.push({
-        width: 200,
-        height: 50,
-        title: '世界你好世界你好世界你好世界你好世界你好',
-      });
-      res.push({
-        width: 200,
-        height: 50,
-        title: '世界你好世界你好世界你好世界你好世界你好世界你好',
-      });
-      res.push({
-        width: 200,
-        height: 50,
-        title: 'aaaaa22212dd3444552211',
-      });
-      res.push({
-        width: 200,
-        height: 50,
-        title: '世界你好#10ll..,f,=wddda33dkakkd  djjd38',
-      });
-
-      let as = "世界你好#10ll..,f,=wddda33dkakkd  djjd38"
-
-      console.log(as.length);
-      
-      setList(res);
-    });
-  }, []);
-
-  const renderItem = ({item}) => {
-    return <ItemSquare item={item} />;
+import Animated, {useValue, timing} from 'react-native-reanimated';
+const {height, width: _width} = Dimensions.get('window');
+const width = _width + _width + 10;
+const Square = () => {
+  let _transX = useValue(0);
+  let _transX2 = useValue(0);
+  const _config = {
+    duration: 300,
+    toValue: width,
+    easing: Easing.linear,
+  };
+  const _config2 = {
+    duration: 600,
+    toValue: width,
+    easing: Easing.linear,
   };
 
+  const mff = useRef(null);
+  const mffs = useRef(null);
+  const timer = useRef(null);
+
+  const onPressIn = ({nativeEvent: {locationX, locationY}}) => {
+    if (timer.current) {
+      return;
+    }
+    mff.current.setNativeProps({
+      top: locationY,
+      left: locationX,
+    });
+    mffs.current.setNativeProps({
+      top: locationY,
+      left: locationX,
+    });
+    _transX.setValue(0);
+    _transX2.setValue(0);
+    timing(_transX, _config).start();
+    timing(_transX2, _config2).start();
+    timer.current = setTimeout(() => {
+      _transX.setValue(0);
+      _transX2.setValue(0);
+      timer.current && clearTimeout(timer.current);
+      timer.current = null;
+    }, 600);
+  };
+
+  const onPressOut = () => {};
+  const onPress = () => {};
+
   return (
-    <View style={layout.page}>
-      <StatusBar
-        hidden={false}
-        translucent={true}
-        backgroundColor={'rgba(255,255,255,0)'}
-        barStyle="dark-content"
-      />
-      <Waterfall data={List} />
-      {/* <ScrollView>
-        <View style={styles.main}>
-          {List.map((value, index) => {
-            return <ItemSquare key={index + ''} index={index} item={value} />;
-          })}
+    <View style={{flex: 1}}>
+      <Pressable
+        onPressIn={onPressIn}
+        onPress={onPress}
+        onPressOut={onPressOut}
+        style={styles.botton}>
+        <Text>3333</Text>
+        <View ref={mff} style={styles.bgbox}>
+          <Animated.View
+            style={[
+              styles.bgcolor,
+              {transform: [{scale: _transX}]},
+            ]}></Animated.View>
         </View>
-      </ScrollView> */}
-      {/* <FlatList
-        data={List}
-        keyExtractor={(d, index) => index + ''}
-        renderItem={renderItem}
-      /> */}
-      {/* <Suspense fallback={<Loding />}>
-        <ScreenS />
-      </Suspense> */}
+        <View ref={mffs} style={styles.bgbox}>
+          <Animated.View
+            style={[
+              styles.bgcolor,
+              {transform: [{scale: _transX2}]},
+            ]}></Animated.View>
+        </View>
+      </Pressable>
+      <Button
+        style={{
+          width: 300,
+          height: 100,
+        }}
+        title="deede"></Button>
     </View>
   );
 };
 
+export default Square;
+
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
+  botton: {
+    width: 300,
+    height: 50,
+    backgroundColor: 'blue',
+    position: 'relative',
+    overflow: 'hidden',
   },
-  main: {
-    flexWrap: 'wrap',
-    flexDirection: 'row',
+  bgbox: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    backgroundColor: 'red',
+    zIndex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bgcolor: {
+    width: 1,
+    backgroundColor: 'rgba(255,255,255,.3)',
+    height: 1,
+    borderRadius: width,
   },
 });
-
-export default connect((state) => state)(Square);
