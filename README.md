@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-08-12 23:58:13
+ * @LastEditTime: 2020-09-11 22:21:16
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /youhello/README.md
+-->
 # 一. 引用ts
 
 1. https://www.dazhuanlan.com/2019/10/16/5da5f99b169cd/
@@ -64,3 +72,4 @@ apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 关闭当前的工作空间，删除掉文件夹中的workspace，然后重新pod install，install完成之后，
 拖ios去xcode重新run
+
