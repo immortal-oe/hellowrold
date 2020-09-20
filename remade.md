@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-11 23:07:39
+ * @LastEditTime: 2020-09-19 23:26:08
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /youhello/remade.md
+-->
 # 一. 引用ts
 
 1. https://www.dazhuanlan.com/2019/10/16/5da5f99b169cd/
@@ -60,3 +68,27 @@ npm run android
 #  [CodePush] Error in getting binary resources modified time
 
 apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+
+
+
+
+# RSKImageCropper 2.3.0 (was 2.2.3 and source changed to `https://cdn.cocoapods.org/` from `trunk`)
+
+等很久
+
+CocoaPods 1.8将CDN切换为默认的spec repo源是trunk源，podfile文件中一定要指定master源。
+但我们更改源之后还不能使用，可能与我们的网络有一定关系，下面是我的解决方案。
+
+新版的 CocoaPods 不允许用pod repo add直接添加master库了，但是依然可以：
+
+1. cd ~/.cocoapods/repos 
+2. pod repo remove master
+3. git clone https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git master
+
+最后进入自己的工程，在自己工程的podFile第一行加上：
+
+4. source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+完事之后记得remove trunk ，执行下面的命令
+pod repo remove trunk
+
+下载完 去掉  4.

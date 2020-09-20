@@ -19,8 +19,12 @@ import Router from './src/Router';
 // import AppCodePush from './src/NativeComponents/AppCodePush';
 import PushCotification from './src/NativeComponents/PushCotification';
 
+
+import * as WeChat from "react-native-wechat-lib";
+
 const App = () => {
 	useEffect(() => {
+		WeChat.registerApp("wxc5c974ea0871a50f", "https://www.ehomepoct.com/");
 		// @ts-ignore
 		TextInput.defaultProps = Object.assign({}, TextInput.defaultProps, {
 			defaultProps: false,
