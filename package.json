@@ -20,7 +20,7 @@
     "@react-navigation/stack": "^5.7.1",
     "@sentry/react-native": "^1.6.3",
     "@types/react-redux": "^7.1.9",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cos-js-sdk-v5": "^0.5.27",
     "jcore-react-native": "^1.8.0",
     "jpush-react-native": "^2.8.1",
